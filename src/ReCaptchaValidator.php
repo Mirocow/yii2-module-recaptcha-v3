@@ -61,7 +61,7 @@ class ReCaptchaValidator extends Validator
     protected function validateValue($value)
     {
         $result = $this->_component->validateValue($value);
-        if ($result === false) {
+        if ((float) $result > 0.3) {
             return [$this->message, []];
         }
 
